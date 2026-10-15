@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LUNARIS VAULT | Collections</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="product.css">
+</head>
+
+<body>
+
+<header>
+  
+  <a href="index.html" style="text-decoration:none; color:inherit;">
+    <div class="logo">LUNARIS VAULT</div>
+  </a>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="product.html">Products</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#support">Support</a>
+
+    <a href="user-login.html">
+      <button>User Login</button>
+      <a href="seller.html">
+      <button>Seller Center</button></a>
+        <a href="cart.html">
+      <button>Cart (<span id="cartCount">0</span>)</button>
+    </a>
+  </nav>
+</header>
+<section class="hero products-hero">
+  <h1>Collections</h1>
+  <p>Artifacts, Books, Figures, Cards & More</p>
+</section>
+<section class="products-section">
+
+  <h2>Collections For Sale</h2>
+
+  <p class="section-description">
+    Discover collections being sold by our community of sellers.
+  </p>
+<!-- SEARCH + CATEGORY FILTER -->
+<div class="products-toolbar">
+  <div class="category-box">
+    <h3>Categories</h3>
+
+    <button class="category-btn active" data-category="all">
+      All
+    </button>
+
+    <button class="category-btn" data-category="books">
+      Books
+    </button>
+
+    <button class="category-btn" data-category="figurines">
+      Figurines
+    </button>
+
+    <button class="category-btn" data-category="music">
+      Music
+    </button>
+
+    <button class="category-btn" data-category="cards">
+      Cards
+    </button>
+
+    <button class="category-btn" data-category="gadget">
+      Gadget
+    </button>
+
+    <button class="category-btn" data-category="miscellaneous">
+      Miscellaneous
+    </button>
+  </div>
+
+  <div class="products-content">
+    <div class="search-bar">
+      <input
+        type="text"
+        id="productSearch"
+        placeholder="Search collections..."
+      >
+    </div>
+
+    <div class="product-grid">
+    <!-- PRODUCT 1 -->
+    <div class="product-card" data-category="books"
+      onclick="openProductModal(
+      'Shadow Of The Wind', 'A classic mystery book from a personal collection.', '₱250','img/oldmysterynovel.jpg' )">
+      <img src="img/oldmysterynovel.jpg">
+      <h3>Shadow Of The Wind</h3>
+      <p class="price">₱250</p>
+      <p>A classic mystery book from a personal collection.</p>
+      <button onclick="event.stopPropagation(); openSeller('john')"> View Seller</button>
+      <button onclick="event.stopPropagation(); addToCart('Shadow Of The Wind','₱250')"> Save to Cart</button>
+
+    </div>
+
+    <!-- PRODUCT 2 -->
+    <div class="product-card" data-category="books"
+      onclick="openProductModal(
+      'No Longer Human', 'Japanese literature book in good condition.','₱150','img/japaneseliterature.jpg')">
+      <img src="img/japaneseliterature.jpg">
+      <h3>No Longer Human</h3>
+      <p class="price">₱150</p>
+      <p>Japanese literature book in good condition.</p>
+      <button onclick="event.stopPropagation(); openSeller('maria')"> View Seller</button>
+      <button onclick="event.stopPropagation(); addToCart('No Longer Human','₱150')"> Save to Cart</button>
+    </div>
+
+    <!-- PRODUCT 3 -->
+    <div class="product-card" data-category="figurines"
+      onclick="openProductModal(
+      'One Piece | Luffy','One Piece Figurine | Luffy.','₱1,200','img/luffy.jpg')">
+      <img src="img/luffy.jpg">
+      <h3>One Piece | Luffy</h3>
+      <p class="price">₱1,200</p>
+      <p>One Piece Figurine | Luffy.</p>
+      <button onclick="event.stopPropagation(); openSeller('keith')">View Seller</button>
+      <button onclick="event.stopPropagation(); addToCart('One Piece | Luffy','₱1,200')"> Save to Cart</button>
+    </div>
+    
+  <!-- PRODUCT 4: BOOKS -->
+  <div class="product-card" data-category="books"
+    onclick="openProductModal('J. K. Rowling · 1997','A highly sought-after modern collectible, especially the true first-edition, first-printing UK hardcover.','₱1,000','img/harrypotter.jpg')">
+    <img src="img/harrypotter.jpg" alt="Fantasy Adventure Book">
+    <h3>Harry Potter</h3>
+    <p class="price">₱1,000</p>
+    <p>Harry Potter and the Philosopher's Stone</p>
+    <button onclick="event.stopPropagation(); openSeller('john')">View Seller</button>
+    <button onclick="event.stopPropagation(); addToCart('Harry Potter','₱1,000')">Save to Cart</button>
+  </div>
+
+  <!-- PRODUCT 5: BOOKS -->
+  <div class="product-card" data-category="books"
+    onclick="openProductModal('J. R. R. Tolkien','Special illustrated hardcovers and limited collector editions make this fantasy classic attractive to book collectors.','₱2,300','img/hobbit.jpg')">
+    <img src="img/hobbit.jpg" alt="The Hobbit">
+    <h3>The Hobbit</h3>
+    <p class="price">₱2,300</p>
+    <p>A classic fantasy novel by J. R. R. Tolkien.</p>
+    <button onclick="event.stopPropagation(); openSeller('maria')">View Seller</button>
+    <button onclick="event.stopPropagation(); addToCart('The Hobbit','₱2,300')">Save to Cart</button>
+  </div>
+
+  <!-- PRODUCT 6: BOOKS -->
+  <div class="product-card" data-category="books"
+    onclick="openProductModal('Stephen King · 1984','A fantasy novel with collector interest in its original hardcover editions, particularly first printings in collectible condition.','₱5,550','img/eyesofthedragon.jpg')">
+    <img src="img/eyesofthedragon.jpg" alt="Eyes of the Dragon">
+    <h3>Eyes of the Dragon</h3>
+    <p class="price">₱5,550</p>
+    <p>A fantasy novel with collector interest in its original hardcover editions.</p>
+    <button onclick="event.stopPropagation(); openSeller('john')">View Seller</button>
+    <button onclick="event.stopPropagation(); addToCart('Eyes of the Dragon','₱5,550')">Save to Cart</button>
+  </div>
+
+  <!-- PRODUCT 7: FIGURINES -->
+  <div class="product-card" data-category="figurines"
+    onclick="openProductModal('SKULLPANDA|POP MART','A distinctive character collectible known for artistic styling, expressive faces, and themed releases.','₱600','img/skullpanda.jpg')">
+    <img src="img/skullpanda.jpg" alt="SKULLPANDA|POP MART">
+    <h3>SKULLPANDA|POP MART</h3>
+    <p class="price">₱600</p>
+    <p>POP MART collectible figure.</p>
+    <button onclick="event.stopPropagation(); openSeller('keith')">View Seller</button>
+    <button onclick="event.stopPropagation(); addToCart('SKULLPANDA|POP MART','₱600')">Save to Cart</button>
+  </div>
+
+  <!-- PRODUCT 8: FIGURINES -->
+  <div class="product-card" data-category="figurines"
+    onclick="openProductModal('Spider-Man Lego','A Spider-Man themed Lego Figure','₱5,000','img/spiderman.jpg')">
+    <img src="img/spiderman.jpg" alt="Spider-Man Lego">
+    <h3>Spider-Man Lego</h3>
+    <p class="price">₱5,000</p>
+    <p>A Spider-Man themed Lego figure for collectors.</p>
+    <button onclick="event.stopPropagation(); openSeller('keith')">View Seller</button>
+    <button onclick="event.stopPropagation(); addToCart('Spider-Man Lego','₱5,000')">Save to Cart</button>
+  </div>
+
+  <!-- PRODUCT 9: FIGURINES -->
+  <div class="product-card" data-category="figurines"
+    onclick="openProductModal('Hatsune Miku Figure','1/7 Scale Hatsune Miku feat. Yoneyama Mai by Good Smile Company.','₱18,500','img/hatsunemiku.jpg')">
+    <img src="img/hatsunemiku.jpg" alt="Hatsune Miku Figure">
+    <h3>Hatsune Miku Figure</h3>
+    <p class="price">₱18,500</p>
+    <p>A colorful character collectible available in elaborate outfits, anniversary versions, and special collaborations.</p>
+    <button onclick="event.stopPropagation(); openSeller('maria')">View Seller</button>
+    <button onclick="event.stopPropagation(); addToCart('Hatsune Miku Figure','₱18,500')">Save to Cart</button>
+  </div>
+
+  <!-- PRODUCT 10: MUSIC -->
+  <div class="product-card" data-category="music"
+    onclick="openProductModal('Midnights| Taylor Swift, 2022','A popular modern pop album with multiple collectible vinyl variants.','₱3,050','img/midnights.jpg')">
+    <img src="img/midnights.jpg" alt="Midnights">
+    <h3>Midnights| Taylor Swift</h3>
+    <p class="price">₱3,050</p>
+    <p>A classic rock vinyl record for music enthusiasts.</p>
+    <button onclick="event.stopPropagation(); openSeller('maria')">View Seller</button>
+    <button onclick="event.stopPropagation(); addToCart('Midnights| Taylor Swift','₱3,050')">Save to Cart</button>
+  </div>
+
+  <!-- PRODUCT 11: MUSIC -->
+  <div class="product-card" data-category="music"
+    onclick="openProductModal('24K Magic — Bruno Mars','A standout modern pop album featuring hits like “24K Magic” and “That’s What I Like.”','₱2,900','img/brunomars.jpg')">
+    <img src="img/brunomars.jpg" alt="24K Magic — Bruno Mars">
+    <h3>24K Magic — Bruno Mars</h3>
+    <p class="price">₱2,900</p>
+    <p>Bruno Mars' standout modern pop album featuring hits like “24K Magic” and “That’s What I Like.”</p>
+    <button onclick="event.stopPropagation(); openSeller('maria')">View Seller</button>
+    <button onclick="event.stopPropagation(); addToCart('24K Magic — Bruno Mars','₱2,900')">Save to Cart</button>
+  </div>
+
+  <!-- PRODUCT 12: MUSIC -->
+  <div class="product-card" data-category="music"
+    onclick="openProductModal('Thriller – Michael Jackson','An iconic album with enduring collector demand and anniversary reissues.','₱2,500','img/thrillerjackson.jpg')">
+    <img src="img/thrillerjackson.jpg" alt="Thriller – Michael Jackson">
+    <h3>Thriller – Michael Jackson</h3>
+    <p class="price">₱2,500</p>
+    <p>An iconic album with enduring collector demand and anniversary reissues.</p>
+    <button onclick="event.stopPropagation(); openSeller('keith')">View Seller</button>
+    <button onclick="event.stopPropagation(); addToCart('Thriller – Michael Jackson','₱2,500')">Save to Cart</button>
+  </div>
+
+  <!-- PRODUCT 13: MUSIC -->
+  <div class="product-card" data-category="music"
+    onclick="openProductModal('Map of the Soul: 7 - BTS','A collectible album package featuring concept photos, a photobook, and inclusions that vary by version.','₱1,750','img/mapof7bts.jpg')">
+    <img src="img/mapof7bts.jpg" alt="Map of the Soul: 7 - BTS">
+    <h3>Map of the Soul: 7 - BTS</h3>
+    <p class="price">₱1,750</p>
+    <p>Complete sets and first-print editions</p>
+    <button onclick="event.stopPropagation(); openSeller('john')">View Seller</button>
+    <button onclick="event.stopPropagation(); addToCart('Map of the Soul: 7 - BTS','₱1,750')">Save to Cart</button>
+  </div>
+
+  <!-- PRODUCT 14: CARDS -->
+  <div class="product-card" data-category="cards"
+    onclick="openProductModal('Charizard Holographic','An iconic collectible card, especially the original Base Set holographic version..','₱25,000','img/charizard.jpg')">
+    <img src="img/charizard.jpg" alt="Charizard Holographic">
+    <h3>Charizard Holographic</h3>
+    <p class="price">₱25,000</p>
+    <p>An iconic collectible card, especially the original Base Set holographic version.</p>
+    <button onclick="event.stopPropagation(); openSeller('maria')">View Seller</button>
+    <button onclick="event.stopPropagation(); addToCart('Charizard Holographic','₱25,000')">Save to Cart</button>
+  </div>
+
+  <!-- PRODUCT 15: CARDS -->
+  <div class="product-card" data-category="cards"
+    onclick="openProductModal('Monkey D. Luffy','A popular character with special alternate-art and manga-inspired card releases.','₱226,132','img/dluffy.jpg')">
+    <img src="img/dluffy.jpg" alt="Monkey D. Luffy">
+    <h3>Monkey D. Luffy</h3>
+    <p class="price">₱226,132</p>
+    <p>A popular character with special alternate-art and manga-inspired card releases.</p>
+    <button onclick="event.stopPropagation(); openSeller('keith')">View Seller</button>
+    <button onclick="event.stopPropagation(); addToCart('Monkey D. Luffy','₱226,132')">Save to Cart</button>
+  </div>
+
+  <!-- PRODUCT 16: GADGET -->
+  <div class="product-card" data-category="gadget"
+    onclick="openProductModal('Nintendo Game Boy','A classic portable gaming console.','₱5,000','img/nintendo.jpg')">
+    <img src="img/nintendo.jpg" alt="Nintendo Game Boy">
+    <h3>Nintendo Game Boy</h3>
+    <p class="price">₱5,000</p>
+    <p>A classic portable gaming console.</p>
+    <button onclick="event.stopPropagation(); openSeller('keith')">View Seller</button>
+    <button onclick="event.stopPropagation(); addToCart('Nintendo Game Boy','₱5,000')">Save to Cart</button>
+  </div>
+
+  <!-- PRODUCT 17: GADGET -->
+  <div class="product-card" data-category="gadget"
+    onclick="openProductModal('Apple iPod Classic','An iconic music player with a recognizable click wheel and nostalgic minimalist design.','₱8,000','img/ipodclassic.jpg')">
+    <img src="img/ipodclassic.jpg" alt="Apple iPod Classic">
+    <h3>Apple iPod Classic</h3>
+    <p class="price">₱8,000</p>
+    <p>An iconic music player with a recognizable click wheel and nostalgic minimalist design.</p>
+    <button onclick="event.stopPropagation(); openSeller('john')">View Seller</button>
+    <button onclick="event.stopPropagation(); addToCart('Apple iPod Classic','₱8,000')">Save to Cart</button>
+  </div>
+
+  <!-- PRODUCT 18: GADGET -->
+  <div class="product-card" data-category="gadget"
+    onclick="openProductModal('Sony PSP','A compact portable gaming console.','₱1,800','img/sonypsp.jpg')">
+    <img src="img/sonypsp.jpg" alt="Sony PSP">
+    <h3>Sony PSP</h3>
+    <p class="price">₱1,800</p>
+    <p>A compact portable gaming console.</p>
+    <button onclick="event.stopPropagation(); openSeller('maria')">View Seller</button>
+    <button onclick="event.stopPropagation(); addToCart('Sony PSP','₱1,800')">Save to Cart</button>
+  </div>
+
+  <!-- PRODUCT 19: MISCELLANEOUS -->
+  <div class="product-card" data-category="miscellaneous"
+    onclick="openProductModal('Oteptzy','A photocard of dancer Otep','₱100','img/otepcard.jpg')">
+    <img src="img/otepcard.jpg" alt="Oteptzy">
+    <h3>Oteptzy</h3>
+    <p class="price">₱100</p>
+    <p>A photocard of the famous dancer Otep.</p>
+    <button onclick="event.stopPropagation(); openSeller('john')">View Seller</button>
+    <button onclick="event.stopPropagation(); addToCart('Oteptzy','₱100')">Save to Cart</button>
+  </div>
+
+  <!-- PRODUCT 20: MISCELLANEOUS -->
+  <div class="product-card" data-category="miscellaneous"
+    onclick="openProductModal('Millennium Falcon UCS','A large-scale model of the famous spacecraft, designed for dedicated builders and collectors.','₱73,000','img/millenniumfalcon.jpg')">
+    <img src="img/millenniumfalcon.jpg" alt="Millennium Falcon UCS">
+    <h3>Millennium Falcon UCS</h3>
+    <p class="price">₱73,000</p>
+    <p>A large-scale model of the famous spacecraft, designed for dedicated builders and collectors.</p>
+    <button onclick="event.stopPropagation(); openSeller('keith')">View Seller</button>
+    <button onclick="event.stopPropagation(); addToCart('Millennium Falcon UCS','₱73,000')">Save to Cart</button>
+  </div>
+
+  <!-- PRODUCT 21: MISCELLANEOUS -->
+  <div class="product-card" data-category="miscellaneous"
+    onclick="openProductModal('The Master of Aura Farming','A photocard of the renowned aura farmer.','₱999','img/aurakeithcard.jpg')">
+    <img src="img/aurakeithcard.jpg" alt="The Master of Aura Farming">
+    <h3>The Master of Aura Farming</h3>
+    <p class="price">₱999</p>
+    <p>A photocard of the renowned aura farmer.</p>
+    <button onclick="event.stopPropagation(); openSeller('keith')">View Seller</button>
+    <button onclick="event.stopPropagation(); addToCart('The Master of Aura Farming','₱999')">Save to Cart</button>
+  </div>
+
+</div>
+</section>
+<!-- SELLER PROFILE MODAL -->
+<div id="sellerModal" class="modal" aria-hidden="true">
+  <div class="modal-content seller-modal-content"
+       role="dialog"
+       aria-modal="true"
+       aria-labelledby="profileUsername">
+
+    <button type="button" class="seller-close-btn"
+            onclick="closeSellerModal()"
+            aria-label="Close seller profile">
+      &times;
+    </button>
+
+    <div class="profile-header">
+      <img id="profilePicture"
+           src="https://placehold.co/120"
+           alt="Seller profile picture">
+
+      <div>
+        <h2 id="profileUsername">Seller Name</h2>
+        <p id="profileBio">Seller biography</p>
+      </div>
+    </div>
+
+    <div class="seller-contact-info">
+      <p><strong>Email:</strong> <span id="profileEmail"></span></p>
+      <p><strong>Facebook:</strong> <span id="profileFacebook"></span></p>
+      <p><strong>Instagram:</strong> <span id="profileInstagram"></span></p>
+    </div>
+
+    <h3 class="seller-products-title">Seller's Products</h3>
+
+    <div id="sellerProducts" class="seller-products-grid"></div>
+
+  </div>
+</div>
+<!-- Product Details Modal -->
+<div id="productModal" class="modal" aria-hidden="true">
+  <div class="modal-content"
+       role="dialog"
+       aria-modal="true"
+       aria-labelledby="modalTitle">
+
+    <img id="modalImage" src="" alt="Product">
+    <h2 id="modalTitle"></h2>
+    <p id="modalDescription"></p>
+    <p><strong>Price: <span id="modalPrice"></span></strong></p>
+    <button id="modalCartBtn" type="button">Add to Cart</button>
+
+  </div>
+</div>
+</div>
+
+<footer>
+  <h3>LUNARIS VAULT</h3>
+
+  <p>Giving old collections a new home.</p>
+
+  <p>Email: handitover@example.com</p>
+
+  <p>© 2026 LUNARIS VAULT</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

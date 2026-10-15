@@ -1,0 +1,280 @@
+/*user profile*/
+
+.user-profile-page {
+  min-height: 75vh;
+  padding: 55px 20px;
+}
+
+.user-profile-card {
+  width: 100%;
+  max-width: 650px;
+  margin: auto;
+  padding: 35px;
+  text-align: center;
+
+  background: linear-gradient(145deg, #101a35, #192747);
+  border: 1px solid #648fb1;
+  border-radius: 18px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+}
+
+.user-avatar {
+  width: 125px;
+  height: 125px;
+  margin: 0 auto 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+  box-sizing: border-box;
+
+  border: 3px solid #aebfc1;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #648fb1, #1e2f73);
+  box-shadow: 0 0 20px rgba(100, 143, 177, 0.5);
+
+  font-size: 60px;
+}
+
+.user-avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+
+  object-fit: cover;
+  object-position: center center;
+
+  border-radius: 50%;
+}
+
+.user-profile-card h1 {
+  font-family: "Cinzel", serif;
+  color: #d0dce5;
+  letter-spacing: 2px;
+  overflow-wrap: anywhere;
+}
+
+.profile-subtitle {
+  color: #aebfc1;
+  margin-bottom: 30px;
+}
+
+.profile-details {
+  text-align: left;
+  margin: 25px 0;
+  padding: 20px;
+
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+}
+
+.profile-details p {
+  overflow-wrap: anywhere;
+  line-height: 1.8;
+}
+
+.profile-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.profile-actions a {
+  text-decoration: none;
+}
+
+.profile-note {
+  color: #aebfc1;
+  font-size: 13px;
+  margin-top: 25px;
+}
+
+
+/*HEADER / HERO PROFILE IMAGE CIRCLE*/
+
+.hero {
+  position: relative;
+}
+
+/* Circular profile link */
+.banner-profile {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+
+  width: 58px;
+  height: 58px;
+  min-width: 58px;
+  min-height: 58px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0;
+  box-sizing: border-box;
+
+  border: 2px solid #aebfc1;
+  border-radius: 50%;
+  overflow: hidden;
+
+  background: linear-gradient(135deg, #172c50, #030f2e);
+  box-shadow: 0 0 14px rgba(100, 143, 177, 0.65);
+
+  text-decoration: none;
+  z-index: 5;
+  isolation: isolate;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* Force the image to fit inside the circle */
+.banner-profile img {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  min-width: 0;
+  min-height: 0;
+  max-width: 100%;
+  max-height: 100%;
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  border: none;
+  border-radius: 50%;
+
+  object-fit: cover;
+
+  /* Adjust image positioning here */
+  object-position: center center;
+}
+
+/* Hide the fallback icon if a picture exists */
+.banner-profile:has(img) .profile-icon {
+    display: none;
+}
+
+/* Show the fallback icon when there is no profile picture */
+.banner-profile:not(:has(img)) .profile-icon {
+    display: flex;
+}
+
+/* Default icon when no image is available */
+.profile-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 29px;
+  line-height: 1;
+}
+
+/* Hover effect */
+.banner-profile:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 22px rgba(208, 220, 229, 0.9);
+}
+
+
+/*RESPONSIVE / MOBILE*/
+
+@media (max-width: 600px) {
+  .user-profile-page {
+    padding: 35px 14px;
+  }
+
+  .user-profile-card {
+    padding: 24px 16px;
+  }
+
+  .user-avatar {
+    width: 100px;
+    height: 100px;
+    font-size: 48px;
+  }
+
+  .banner-profile {
+    top: 12px;
+    right: 12px;
+
+    width: 46px;
+    height: 46px;
+    min-width: 46px;
+    min-height: 46px;
+  }
+
+  .profile-icon {
+    font-size: 23px;
+  }
+}
+    .profile-upload {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        margin: 20px 0;
+    }
+
+    .profile-preview {
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+        border: 3px solid #aebfc1;
+        background: #081632;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        color: #aebfc1;
+        font-size: 38px;
+    }
+
+    .profile-preview img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+        display: none;
+    }
+
+    .upload-button {
+        display: inline-block;
+        padding: 10px 18px;
+        border: 1px solid #aebfc1;
+        border-radius: 8px;
+        background: linear-gradient(135deg, #648fb1, #1e2f73);
+        color: #fff;
+        cursor: pointer;
+        font-family: inherit;
+        text-align: center;
+    }
+
+    .upload-button:hover {
+        box-shadow: 0 0 12px rgba(100, 143, 177, 0.6);
+    }
+
+    #profileImage {
+        display: none;
+    }
+
+    #uploadStatus {
+        font-size: 13px;
+        color: #aebfc1;
+        text-align: center;
+    }

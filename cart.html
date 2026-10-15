@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart | Lunaris Vault</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <a href="index.html" style="text-decoration:none; color:inherit;">
+        <div class="logo">Lunaris Vault</div>
+    </a>
+</header>
+
+<section>
+    <div class="profile-container">
+
+        <div class="cart-header">
+            <h2>My Cart</h2>
+            <button id="editCartBtn" onclick="toggleCartEdit()">
+                Edit Items
+            </button>
+        </div>
+
+        <div id="cartEditControls" style="display:none;">
+            <button onclick="removeSelectedItems()">Remove Item</button>
+            
+            <button onclick="toggleCartEdit()">Done</button>
+        </div>
+
+        <!-- Products will appear inside fixed-size boxes -->
+        <div id="cartItems">
+            <p>No products in your cart yet.</p>
+        </div>
+
+        <!-- Total amount -->
+        <div class="cart-total">
+            <span>Total Amount</span>
+            <strong id="cartTotal">₱0.00</strong>
+        </div>
+
+        <p id="checkoutMessage"
+           style="display:none; color:#648fb1; margin-top:15px;">
+        </p>
+
+        <div class="cart-actions">
+            <a href="index.html">
+                <button type="button" class="back-button">
+                    Back to Home
+                </button>
+            </a>
+
+            <button type="button"
+                    id="checkoutBtn"
+                    class="checkout-button"
+                    onclick="handleCheckout()">
+                Proceed to Checkout
+            </button>
+        </div>
+
+    </div>
+</section>
+
+    <footer>
+      <h3>LUNARIS VAULT</h3>
+
+      <p>Giving old collections a new home.</p>
+
+      <p>Email: handitover@gmail.com</p>
+
+      <p>© 2026 LUNARIS VAULT</p>
+    </footer>
+
+<script src="script.js"></script>
+</body>
+</html>

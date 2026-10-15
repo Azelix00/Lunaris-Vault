@@ -1,0 +1,99 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>User Profile | LUNARIS VAULT</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="uprofile.css">
+
+  
+</head>
+
+<body>
+
+  <header>
+    <a href="index.html" style="text-decoration:none">
+      <div class="logo">LUNARIS VAULT</div>
+    </a>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="product.html">Products</a>
+      <a href="cart.html">
+        <button>Cart (<span id="cartCount">0</span>)</button>
+      </a>
+    </nav>
+  </header>
+
+  <main class="user-profile-page">
+    <section class="user-profile-card">
+
+      <div class="user-avatar" aria-label="Default user avatar">
+        <img src="img/profile.jpg" alt="User Avatar">
+      </div>
+
+      <h1 id="profileName">Guest User</h1>
+      <p class="profile-subtitle">LUNARIS VAULT Member</p>
+
+      <div class="profile-details">
+        <p><strong>Username:</strong> <span id="profileUsername">Not set</span></p>
+        <p><strong>Email:</strong> <span id="profileEmail">Not set</span></p>
+        <p><strong>Account:</strong> <span id="profileStatus">Guest</span></p>
+      </div>
+
+      <div class="profile-actions">
+        <a href="user-login.html">
+          <button>Log In</button>
+        </a>
+
+        <a href="product.html">
+          <button>Browse Collections</button>
+        </a>
+
+        <a href="index.html">
+          <button>Back to Home</button>
+        </a>
+      </div>
+
+      <p class="profile-note">
+        Your collectible journey starts here.
+      </p>
+
+    </section>
+  </main>
+
+  <footer>
+    <h3>LUNARIS VAULT</h3>
+    <p>Giving old collections a new home.</p>
+    <p>Email: lunarisvault@gmail.com</p>
+    <p>© 2026 LUNARIS VAULT</p>
+  </footer>
+
+  <script>
+    // Display saved profile information if your login system
+    // stores these values in localStorage.
+    const username = localStorage.getItem("username");
+    const email = localStorage.getItem("email");
+
+    if (username) {
+      document.getElementById("profileName").textContent = username;
+      document.getElementById("profileUsername").textContent = username;
+      document.getElementById("profileStatus").textContent = "Registered";
+    }
+
+    if (email) {
+      document.getElementById("profileEmail").textContent = email;
+    }
+  </script>
+
+</body>
+</html>

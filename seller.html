@@ -1,0 +1,756 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LUNARIS VAULT | Seller Center</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="seller.css" />
+  </head>
+
+  <body>
+    <header>
+      <a href="index.html" style="text-decoration: none; color: inherit">
+        <div class="logo">LUNARIS VAULT</div>
+      </a>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="product.html">Products</a>
+        <a href="cart.html"><button>Cart(<span id="cartCount">0</span>)</button></a>
+    </nav>
+    </header>
+    <section class="seller-hero">
+      <h1>Seller Center</h1>
+      <p>Give your treasured collectibles a new home.</p>
+      <p>List your books, figurines, music, cards, gadgets, and rare finds.</p>
+    </section>
+
+    <main class="seller-container">
+              <!--seller user profile-->
+      <section class="seller-profile">
+        <div class="profile-cover">
+          <span class="profile-cover-label">LUNARIS VAULT · SELLER ACCOUNT</span>
+        </div>
+
+        <div class="profile-main">
+          <div class="profile-avatar-wrapper">
+            <img
+              id="profileAvatar"
+              class="profile-avatar"
+              src=""
+              alt="Seller profile picture"
+            />
+
+            <label for="profileAvatarInput" class="avatar-upload-btn"
+              title="Change profile picture">✎</label>
+
+            <input
+              type="file"
+              id="profileAvatarInput"
+              accept="image/*"
+              hidden
+            />
+          </div>
+
+          <div class="profile-identity">
+            <span class="profile-label">SELLER PROFILE</span>
+            <h2 id="profileDisplayName">Your Seller Name</h2>
+            <p id="profileDisplayBio">
+              A collector sharing treasured finds with the world.
+            </p>
+            <p class="profile-location" id="profileDisplayLocation">
+              <span>⌖</span> Add your location
+            </p>
+          </div>
+
+          <button type="button" id="editProfileBtn" class="profile-edit-btn">
+            Edit Profile
+          </button>
+        </div>
+
+        <div class="profile-stats">
+          <div class="profile-stat">
+            <span class="profile-stat-number" id="profileProductCount">0</span>
+            <span class="profile-stat-label">Products Listed</span>
+          </div>
+
+          <div class="profile-stat">
+            <span class="profile-stat-number" id="profileInventoryValue">₱0.00</span>
+            <span class="profile-stat-label">Listing Value</span>
+          </div>
+        </div>
+
+        <form id="profileForm" class="profile-form" hidden>
+          <h3>Edit Seller Profile</h3>
+
+          <div class="form-group">
+            <label for="profileNameInput">Display Name</label>
+            <input
+              type="text"
+              id="profileNameInput"
+              maxlength="60"
+              placeholder="Enter your seller name"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="profileBioInput">About You</label>
+            <textarea
+              id="profileBioInput"
+              maxlength="250"
+              placeholder="Tell buyers about your collection..."
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="profileLocationInput">Location</label>
+            <input
+              type="text"
+              id="profileLocationInput"
+              maxlength="100"
+              placeholder="e.g. Manila, Philippines"
+            />
+          </div>
+
+          <div class="profile-form-actions">
+            <button type="submit" class="seller-btn">Save Profile</button>
+            <button
+              type="button"
+              id="cancelProfileBtn"
+              class="seller-btn secondary"
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+      </section>
+  
+      <h2 class="seller-heading">List Your Collection</h2>
+
+      <p class="seller-description">
+        Fill in your product details below. Your listing will be saved in this
+        browser and can be displayed on the Products page.
+      </p>
+
+      <div id="sellerNotice" class="notice" role="status"></div>
+
+      <div class="seller-layout">
+        <!-- seller form -->
+        <section class="seller-panel">
+          <h3>Product Information</h3>
+
+          <form id="sellerForm">
+            <div class="form-group">
+              <label for="sellerName">Seller Name</label>
+              <input
+                type="text"
+                id="sellerName"
+                placeholder="Enter your seller name"
+                maxlength="60"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="productName">Product Name</label>
+              <input
+                type="text"
+                id="productName"
+                placeholder="e.g. First Edition Collectible Book"
+                maxlength="100"
+                required
+              />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="productCategory">Category</label>
+                <select id="productCategory" required>
+                  <option value="">Choose category</option>
+                  <option value="books">Books</option>
+                  <option value="figurines">Figurines</option>
+                  <option value="music">Music</option>
+                  <option value="cards">Cards</option>
+                  <option value="gadget">Gadget</option>
+                  <option value="miscellaneous">Miscellaneous</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="productPrice">Price (₱)</label>
+                <input
+                  type="number"
+                  id="productPrice"
+                  min="0.01"
+                  max="999999999"
+                  step="0.01"
+                  placeholder="250.00"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="productImage">Product Image</label>
+              <input type="file" id="productImage" accept="image/*" />
+              <p style="font-size: 11px; color: #999">
+                Choose an image from your device. Maximum size: 1 MB.
+              </p>
+            </div>
+
+            <div class="form-group">
+              <label for="productDescription">Description</label>
+              <textarea
+                id="productDescription"
+                maxlength="1000"
+                placeholder="Describe the item's condition, edition, or collectible value..."
+                required
+              ></textarea>
+            </div>
+
+            <button class="seller-btn full-width" type="submit">
+              Publish Product
+            </button>
+          </form>
+        </section>
+
+        <!-- live preview -->
+        <aside class="seller-panel">
+          <h3>Product Preview</h3>
+
+          <span class="seller-badge" id="previewCategory"> YOUR CATEGORY </span>
+
+          <img
+            id="previewImage"
+            class="preview-image"
+            alt="Product preview"
+            src=""
+          />
+
+          <h2 class="preview-name" id="previewName">Your Product Name</h2>
+
+          <p class="preview-price" id="previewPrice">₱0.00</p>
+
+          <p class="preview-description" id="previewDescription">
+            Your product description will appear here.
+          </p>
+
+          <p style="color: #999; font-size: 12px">
+            Seller: <span id="previewSeller">Your Name</span>
+          </p>
+        </aside>
+      </div>
+
+      <!-- seller listing -->
+      <section class="listing-section">
+        <div class="listing-header">
+          <h2>My Listings</h2>
+          <span class="listing-count" id="listingCount">
+            0 products listed
+          </span>
+        </div>
+
+        <div class="listing-grid" id="sellerListings">
+          <div class="empty-list">
+            You haven't listed any products yet.
+            <br />Publish your first collectible above!
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <h3>LUNARIS VAULT</h3>
+      <p>Giving old collections a new home.</p>
+      <p>© 2026 LUNARIS VAULT</p>
+    </footer>
+
+    <script>
+      const STORAGE_KEY = "lunarisSellerProducts";
+
+      const form = document.getElementById("sellerForm");
+      const imageInput = document.getElementById("productImage");
+      const notice = document.getElementById("sellerNotice");
+
+      let selectedImage = "";
+      let imageWasChosen = false;
+
+      const placeholderImage =
+        "data:image/svg+xml;charset=UTF-8," +
+        encodeURIComponent(`
+            <svg xmlns="http://www.w3.org/2000/svg" width="500" height="350">
+                <rect width="100%" height="100%" fill="#191919"/>
+                <text x="50%" y="48%" fill="#648fb1" font-size="22"
+                    text-anchor="middle" font-family="serif">
+                    LUNARIS VAULT
+                </text>
+                <text x="50%" y="58%" fill="#999" font-size="13"
+                    text-anchor="middle" font-family="sans-serif">
+                    Product Preview
+                </text>
+            </svg>
+        `);
+
+      function getProducts() {
+        try {
+          const data = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+          return Array.isArray(data) ? data : [];
+        } catch {
+          return [];
+        }
+      }
+
+      function showNotice(message) {
+        notice.textContent = message;
+        notice.style.display = "block";
+      }
+
+      function money(value) {
+        return (
+          "₱" +
+          Number(value).toLocaleString("en-PH", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          })
+        );
+      }
+
+      function categoryLabel(value) {
+        const labels = {
+          books: "Books",
+          figurines: "Figurines",
+          music: "Music",
+          cards: "Cards",
+          gadget: "Gadget",
+          miscellaneous: "Miscellaneous",
+        };
+
+        return labels[value] || "Your Category";
+      }
+
+      function updatePreview() {
+        const name = document.getElementById("productName").value.trim();
+        const price = document.getElementById("productPrice").value;
+        const category = document.getElementById("productCategory").value;
+        const description = document
+          .getElementById("productDescription")
+          .value.trim();
+        const seller = document.getElementById("sellerName").value.trim();
+
+        document.getElementById("previewName").textContent =
+          name || "Your Product Name";
+
+        document.getElementById("previewPrice").textContent =
+          price && Number(price) > 0 ? money(price) : "₱0.00";
+
+        document.getElementById("previewCategory").textContent =
+          categoryLabel(category);
+
+        document.getElementById("previewDescription").textContent =
+          description || "Your product description will appear here.";
+
+        document.getElementById("previewSeller").textContent =
+          seller || "Your Name";
+      }
+
+      [
+        "sellerName",
+        "productName",
+        "productPrice",
+        "productCategory",
+        "productDescription",
+      ].forEach((id) => {
+        document.getElementById(id).addEventListener("input", updatePreview);
+        document.getElementById(id).addEventListener("change", updatePreview);
+      });
+
+      imageInput.addEventListener("change", () => {
+        const file = imageInput.files[0];
+
+        if (!file) {
+          selectedImage = "";
+          imageWasChosen = false;
+          document.getElementById("previewImage").src = placeholderImage;
+          return;
+        }
+
+        if (!file.type.startsWith("image/")) {
+          imageInput.value = "";
+          showNotice("Please select a valid image file.");
+          return;
+        }
+
+        if (file.size > 5 * 1024 * 1024) {
+          imageInput.value = "";
+          showNotice(
+            "Your image is too large. Please choose an image under 5 MB.",
+          );
+          return;
+        }
+
+        const reader = new FileReader();
+
+        reader.onload = () => {
+          selectedImage = reader.result;
+          imageWasChosen = true;
+          document.getElementById("previewImage").src = selectedImage;
+        };
+
+        reader.onerror = () => {
+          showNotice("The image could not be loaded. Please try again.");
+        };
+
+        reader.readAsDataURL(file);
+      });
+
+      function renderListings() {
+        const container = document.getElementById("sellerListings");
+        const products = getProducts();
+
+        document.getElementById("listingCount").textContent =
+          products.length +
+          (products.length === 1 ? " product listed" : " products listed");
+
+        container.replaceChildren();
+
+        if (products.length === 0) {
+          const empty = document.createElement("div");
+          empty.className = "empty-list";
+          empty.textContent =
+            "You haven't listed any products yet. Publish your first collectible above!";
+          container.appendChild(empty);
+          return;
+        }
+
+        products.forEach((product) => {
+          const card = document.createElement("article");
+          card.className = "listing-card";
+
+          const image = document.createElement("img");
+          image.src = product.image || placeholderImage;
+          image.alt = product.name;
+          image.onerror = () => {
+            image.src = placeholderImage;
+          };
+
+          const category = document.createElement("span");
+          category.className = "seller-badge";
+          category.textContent = categoryLabel(product.category);
+
+          const title = document.createElement("h3");
+          title.textContent = product.name;
+
+          const price = document.createElement("p");
+          price.className = "price";
+          price.textContent = money(product.price);
+
+          const description = document.createElement("p");
+          description.textContent = product.description;
+
+          const seller = document.createElement("p");
+          seller.textContent = "Seller: " + product.seller;
+
+          const removeButton = document.createElement("button");
+          removeButton.type = "button";
+          removeButton.className = "seller-btn secondary full-width";
+          removeButton.textContent = "Delete Listing";
+
+          removeButton.addEventListener("click", () => {
+            if (!confirm("Delete this product listing?")) return;
+
+            const remaining = getProducts().filter(
+              (item) => item.id !== product.id,
+            );
+
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(remaining));
+            renderListings();
+            showNotice("Product listing deleted.");
+          });
+
+          card.append(
+            image,
+            category,
+            title,
+            price,
+            description,
+            seller,
+            removeButton,
+          );
+
+          container.appendChild(card);
+        });
+      }
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const seller = document.getElementById("sellerName").value.trim();
+        const name = document.getElementById("productName").value.trim();
+        const category = document.getElementById("productCategory").value;
+        const price = Number(document.getElementById("productPrice").value);
+        const description = document
+          .getElementById("productDescription")
+          .value.trim();
+
+        if (
+          !seller ||
+          !name ||
+          !category ||
+          !description ||
+          !Number.isFinite(price) ||
+          price <= 0 ||
+          price > 999999999
+        ) {
+          showNotice("Please complete all fields with valid information.");
+          return;
+        }
+
+        const products = getProducts();
+
+        // Avoid filling browser storage beyond a reasonable limit.
+        if (products.length >= 100) {
+          showNotice("You have reached the demo limit of 100 listings.");
+          return;
+        }
+
+        const product = {
+          id: crypto.randomUUID
+            ? crypto.randomUUID()
+            : Date.now().toString() + Math.random().toString(36).slice(2),
+          seller,
+          name,
+          category,
+          price,
+          description,
+          image: imageWasChosen ? selectedImage : "",
+        };
+
+        try {
+          localStorage.setItem(
+            STORAGE_KEY,
+            JSON.stringify([...products, product]),
+          );
+        } catch {
+          showNotice(
+            "Unable to save this listing. Browser storage may be full.",
+          );
+          return;
+        }
+
+        renderListings();
+        showNotice("Your product has been published successfully!");
+
+        form.reset();
+        selectedImage = "";
+        imageWasChosen = false;
+
+        document.getElementById("previewImage").src = placeholderImage;
+        updatePreview();
+
+        document.getElementById("sellerListings").scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      });
+  
+//seller profile function//
+
+const PROFILE_KEY = "lunarisSellerProfile";
+
+const profileForm = document.getElementById("profileForm");
+const profileAvatarInput = document.getElementById("profileAvatarInput");
+const profileNameInput = document.getElementById("profileNameInput");
+const profileBioInput = document.getElementById("profileBioInput");
+const profileLocationInput = document.getElementById("profileLocationInput");
+
+const defaultProfileAvatar =
+  "data:image/svg+xml;charset=UTF-8," +
+  encodeURIComponent(`
+    <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">
+      <rect width="100%" height="100%" fill="#25252c"/>
+      <circle cx="100" cy="72" r="35" fill="#b99a64"/>
+      <path d="M30 200 Q35 125 100 125 Q165 125 170 200"
+        fill="#b99a64"/>
+    </svg>
+  `);
+
+let selectedAvatar = "";
+let avatarWasChanged = false;
+
+function getProfile() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(PROFILE_KEY) || "{}");
+
+    return {
+      name: typeof saved.name === "string" ? saved.name : "",
+      bio: typeof saved.bio === "string" ? saved.bio : "",
+      location: typeof saved.location === "string" ? saved.location : "",
+      avatar:
+        typeof saved.avatar === "string" &&
+        saved.avatar.startsWith("data:image/")
+          ? saved.avatar
+          : "",
+    };
+  } catch {
+    return { name: "", bio: "", location: "", avatar: "" };
+  }
+}
+
+function renderProfile() {
+  const profile = getProfile();
+  const products = getProducts();
+
+  document.getElementById("profileDisplayName").textContent =
+    profile.name || "Your Seller Name";
+
+  document.getElementById("profileDisplayBio").textContent =
+    profile.bio || "A collector sharing treasured finds with the world.";
+
+  document.getElementById("profileDisplayLocation").textContent =
+    profile.location
+      ? "⌖ " + profile.location
+      : "⌖ Add your location";
+
+  document.getElementById("profileAvatar").src =
+    profile.avatar || defaultProfileAvatar;
+
+  document.getElementById("profileProductCount").textContent =
+    products.length;
+
+  const totalValue = products.reduce((total, product) => {
+    const price = Number(product.price);
+    return total + (Number.isFinite(price) && price > 0 ? price : 0);
+  }, 0);
+
+  document.getElementById("profileInventoryValue").textContent =
+    money(totalValue);
+}
+
+document.getElementById("editProfileBtn").addEventListener("click", () => {
+  const profile = getProfile();
+
+  profileNameInput.value =
+    profile.name || document.getElementById("sellerName").value.trim();
+
+  profileBioInput.value = profile.bio;
+  profileLocationInput.value = profile.location;
+
+  selectedAvatar = profile.avatar;
+  avatarWasChanged = false;
+
+  profileForm.hidden = false;
+  profileForm.scrollIntoView({ behavior: "smooth", block: "nearest" });
+});
+
+document.getElementById("cancelProfileBtn").addEventListener("click", () => {
+  profileForm.hidden = true;
+  profileAvatarInput.value = "";
+  avatarWasChanged = false;
+});
+
+profileAvatarInput.addEventListener("change", () => {
+  const file = profileAvatarInput.files[0];
+
+  if (!file) return;
+
+  if (!file.type.startsWith("image/")) {
+    profileAvatarInput.value = "";
+    showNotice("Please choose a valid profile image.");
+    return;
+  }
+
+  if (file.size > 1024 * 1024) {
+    profileAvatarInput.value = "";
+    showNotice("Profile pictures must be 1 MB or smaller.");
+    return;
+  }
+
+  const reader = new FileReader();
+
+  reader.onload = () => {
+    selectedAvatar = reader.result;
+    avatarWasChanged = true;
+    document.getElementById("profileAvatar").src = selectedAvatar;
+  };
+
+  reader.onerror = () => {
+    showNotice("Unable to load the profile picture.");
+  };
+
+  reader.readAsDataURL(file);
+});
+
+profileForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const previousProfile = getProfile();
+  const name = profileNameInput.value.trim();
+
+  if (!name) {
+    showNotice("Please enter a seller display name.");
+    return;
+  }
+
+  const profile = {
+    name,
+    bio: profileBioInput.value.trim(),
+    location: profileLocationInput.value.trim(),
+    avatar: avatarWasChanged
+      ? selectedAvatar
+      : previousProfile.avatar,
+  };
+
+  try {
+    localStorage.setItem(PROFILE_KEY, JSON.stringify(profile));
+  } catch {
+    showNotice(
+      "Unable to save your profile. Try using a smaller profile picture."
+    );
+    return;
+  }
+
+  //Keep the product form's seller name consistent with the profile.
+  document.getElementById("sellerName").value = name;
+  updatePreview();
+  renderProfile();
+
+  profileForm.hidden = true;
+  profileAvatarInput.value = "";
+  avatarWasChanged = false;
+
+  showNotice("Your seller profile has been saved.");
+});
+
+//Refresh statistics whenever another tab changes the listings.
+window.addEventListener("storage", (event) => {
+  if (
+    event.key === STORAGE_KEY ||
+    event.key === PROFILE_KEY ||
+    event.key === null
+  ) {
+    renderProfile();
+    renderListings();
+  }
+});
+      document.getElementById("previewImage").src = placeholderImage;
+
+        const savedProfile = getProfile();
+
+        if (savedProfile.name) {
+        document.getElementById("sellerName").value = savedProfile.name;
+        }
+
+        updatePreview();
+        renderProfile();
+        renderListings();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LUNARIS VAULT</title>
+    <link href="https://fonts.cdnfonts.com/css/prpto" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="Stylesheet" href="product.css" />
+    <link rel="Stylesheet" href="uprofile.css" />
+  </head>
+
+  <body>
+    <!--header/navigation-->
+    <header>
+      <a onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
+        <div class="logo">LUNARIS VAULT</div>
+      </a>
+
+      <nav>
+        <a href="#home">Home</a>
+        <a href="product.html">Products</a>
+        <a href="#about">About</a>
+        <a href="#support">Support</a>
+        <a href="cart.html">
+          <button>Cart (<span id="cartCount">0</span>)</button>
+        </a>
+
+        <a href="user-login.html">
+          <button>User Login</button>
+        </a>
+        <a href="seller-login.html">
+          <button>Seller Registration</button>
+        </a>
+        <a href="seller.html">
+          <button>Seller Center</button>
+        </a>
+      </nav>
+    </header>
+
+    <!--home page-->
+    <main id="home">
+      <section class="hero">
+      <a href="user profile.html" class="banner-profile">
+    <img
+        src="img/profile.jpg"
+        alt="User Profile"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+    >
+    <span class="profile-icon" style="display: none;">👤</span>
+    </a>
+
+        <button
+          class="hero-title-btn"
+          onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+        >
+          LUNARIS VAULT
+        </button>
+
+        <p>
+          Find old books, collections, and treasures from different sellers.
+        </p>
+
+        <a href="#featured-products">
+          <button>Browse Collections</button>
+        </a>
+      </section>
+
+      <!-- featured products -->
+      <section class="products-section" id="featured-products">
+        <h2>Featured Collections</h2>
+
+        <p class="section-description">
+          Discover some of our most popular collections.
+        </p>
+
+        <div class="product-grid">
+          <!-- product 1 -->
+          <div
+            class="product-card"
+            data-category="music"
+            onclick="
+              openProductModal(
+                '24K Magic — Bruno Mars',
+                'A standout modern pop album featuring hits like “24K Magic” and “That’s What I Like.”',
+                '₱2900',
+                'img/brunomars.jpg',
+              )
+            "
+          >
+            <img src="img/brunomars.jpg" alt="24K Magic — Bruno Mars" />
+            <h3>24K Magic — Bruno Mars</h3>
+            <p class="price">₱2,900</p>
+            <p>
+              Bruno Mars' standout modern pop album featuring hits like “24K
+              Magic” and “That’s What I Like.”
+            </p>
+          </div>
+
+          <!-- product 2 -->
+          <div
+            class="product-card"
+            data-category="gadget"
+            class="product-card"
+            data-category="cards"
+            onclick="
+              openProductModal(
+                'Monkey D. Luffy',
+                'A popular character with special alternate-art and manga-inspired card releases.',
+                '₱226,132',
+                'img/dluffy.jpg',
+              )
+            "
+          >
+            <img src="img/dluffy.jpg" alt="Monkey D. Luffy" />
+            <h3>Monkey D. Luffy</h3>
+            <p class="price">₱226,132</p>
+            <p>
+              A popular character with special alternate-art and manga-inspired
+              card releases.
+            </p>
+          </div>
+
+          <!-- product 3 -->
+          <div class="product-card" data-category="music"
+          onclick="openProductModal('Map of the Soul: 7 - BTS','A collectible album package featuring concept photos, a photobook, and inclusions that vary by version.','₱1750','img/mapof7bts.jpg')">
+          <img src="img/mapof7bts.jpg" alt="Map of the Soul: 7 - BTS">
+          <h3>Map of the Soul: 7 - BTS</h3>
+          <p class="price">₱1,750</p>
+          <p>Complete sets and first-print editions</p>
+          </div>
+          <!-- product 4 -->
+          <div
+            class="product-card"
+            data-category="books"
+            onclick="
+              openProductModal(
+                'J. K. Rowling · 1997',
+                'A highly sought-after modern collectible, especially the true first-edition, first-printing UK hardcover.',
+                '₱1000',
+                'img/harrypotter.jpg',
+              )
+            "
+          >
+            <img src="img/harrypotter.jpg" alt="Fantasy Adventure Book" />
+            <h3>Harry Potter</h3>
+            <p class="price">₱1,000</p>
+            <p>
+              A highly sought-after modern collectible, especially the true
+              first-edition.
+            </p>
+          </div>
+
+          <!-- product 5 -->
+          <div
+            class="product-card"
+            data-category="books"
+            onclick="
+              openProductModal(
+                'J. R. R. Tolkien',
+                'Special illustrated hardcovers and limited collector editions make this fantasy classic attractive to book collectors.',
+                '₱2300',
+                'img/hobbit.jpg',
+              )
+            "
+          >
+            <img src="img/hobbit.jpg" alt="The Hobbit" />
+            <h3>The Hobbit</h3>
+            <p class="price">₱2,300</p>
+            <p>A classic fantasy novel by J. R. R. Tolkien.</p>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px">
+          <a href="product.html">
+            <button>View Full Collection</button>
+          </a>
+        </div>
+      </section>
+      <!-- Product Details Modal -->
+      <div id="productModal" class="modal">
+        <div class="modal-content">
+          <img id="modalImage" src="" alt="Product" />
+
+          <h2 id="modalTitle"></h2>
+
+          <p id="modalDescription"></p>
+
+          <p>
+            <strong>Price: <span id="modalPrice"></span></strong>
+          </p>
+
+          <button id="modalCartBtn">Add to Cart</button>
+        </div>
+      </div>
+
+<!-- about and support background wrapper-->
+<div class="about-support-wrapper">
+
+  <!-- video background -->
+  <div class="info-background">
+    <video autoplay muted loop playsinline id="aboutSupportVideo">
+      <source src="img/frierenxhimmel.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <!--about section-->
+  <section id="about" class="info-section">
+    <h2>About LUNARIS VAULT</h2>
+
+    <p>
+      LUNARIS VAULT is an online marketplace where people can sell their
+      collections of books and other collectible items.
+    </p>
+
+    <p>
+      Users can browse through all of the products posted by sellers and purchase them directly through the website.
+    </p>
+
+    <p>
+      The goal is to make a community of collectors and sellers who can share their passion for books and collectibles.
+    </p>
+
+    <h3>Website Email</h3>
+    <p>lunarisvault@gmail.com</p>
+  </section>
+
+  <!--support section-->
+  <section id="support" class="info-section support">
+    <h2>Support</h2>
+
+    <p>
+      Need help with LUNARIS VAULT? Contact us using one of the methods
+      below.
+    </p>
+
+    <div class="support-info">
+      <p><strong>Phone:</strong> 0912-345-6789</p>
+      <p><strong>Email:</strong> lunarissupport@gmail.com</p>
+      <p><strong>Facebook:</strong> facebook.com/lunarisvault</p>
+      <p><strong>Instagram:</strong> @lunarisvault</p>
+    </div>
+  </section>
+
+</div>
+
+    </main>
+    <!--footer-->
+
+    <footer>
+      <h3>LUNARIS VAULT</h3>
+
+      <p>Giving old collections a new home.</p>
+
+      <p>Email: handitover@gmail.com</p>
+
+      <p>© 2026 LUNARIS VAULT</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
