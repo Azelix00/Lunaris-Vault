@@ -1,0 +1,397 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout | Lunaris Vault</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="checkout.css">
+
+</head>
+
+<body>
+
+<header>
+    <a href="index.html" style="text-decoration:none;color:inherit;">
+        <div class="logo">Lunaris Vault</div>
+    </a>
+</header>
+
+<main>
+<div class="checkout-container">
+
+    <h2>Secure Checkout</h2>
+    <p class="section-note">
+        Complete your delivery details and choose your preferred payment
+        and shipping options.
+    </p>
+
+    <form id="checkoutForm">
+
+        <!--address-->
+        <section class="checkout-section">
+            <h3>1. Delivery Address</h3>
+
+            <label class="field-label" for="fullName">Full Name *</label>
+            <input class="address-input" id="fullName"
+                   name="fullName" type="text"
+                   autocomplete="name" required
+                   placeholder="Enter recipient's full name">
+
+            <label class="field-label" for="phone">Contact Number *</label>
+            <input class="address-input" id="phone"
+                   name="phone" type="tel"
+                   autocomplete="tel" required
+                   placeholder="e.g. 09XX XXX XXXX">
+
+            <label class="field-label" for="address">Complete Delivery Address *</label>
+            <textarea class="address-input" id="address"
+                      name="address" autocomplete="street-address"
+                      required
+                      placeholder="House/Unit No., Street, Barangay, City/Municipality, Province, ZIP Code"></textarea>
+
+            <label class="field-label" for="deliveryNotes">
+                Delivery Instructions (Optional)
+            </label>
+            <textarea class="address-input" id="deliveryNotes"
+                      name="deliveryNotes"
+                      placeholder="Landmarks or special delivery instructions"></textarea>
+        </section>
+
+        <!--payment methods -->
+        <section class="checkout-section">
+            <h3>2. Payment Method</h3>
+            <p class="section-note">
+                Select one payment method. Payment options below are
+                sample choices for your website prototype.
+            </p>
+
+            <div class="payment-grid">
+
+                <label class="option-card">
+                    <input type="radio" name="paymentMethod"
+                           value="GCash" required>
+                    <span class="option-icon">📱</span>
+                    <span class="option-details">
+                        <strong>GCash</strong>
+                        <small>Mobile wallet</small>
+                    </span>
+                </label>
+
+                <label class="option-card">
+                    <input type="radio" name="paymentMethod"
+                           value="BDO">
+                    <span class="option-icon">🏦</span>
+                    <span class="option-details">
+                        <strong>BDO</strong>
+                        <small>Bank transfer</small>
+                    </span>
+                </label>
+
+                <label class="option-card">
+                    <input type="radio" name="paymentMethod"
+                           value="Mari Bank">
+                    <span class="option-icon">💳</span>
+                    <span class="option-details">
+                        <strong>MariBank</strong>
+                        <small>Bank payment</small>
+                    </span>
+                </label>
+
+                <label class="option-card">
+                    <input type="radio" name="paymentMethod"
+                           value="Cash on Delivery">
+                    <span class="option-icon">💵</span>
+                    <span class="option-details">
+                        <strong>Cash on Delivery</strong>
+                        <small>Pay when your parcel arrives</small>
+                    </span>
+                </label>
+
+            </div>
+        </section>
+
+        <!--sample delivery company -->
+        <section class="checkout-section">
+            <h3>3. Delivery Company</h3>
+            <p class="section-note">
+                Sample shipping choices and fees for demonstration.
+                Replace these with your actual courier rates later.
+            </p>
+
+            <div class="payment-grid">
+
+                <label class="option-card">
+                    <input type="radio" name="courier"
+                           value="LBC Express" data-fee="120" required>
+                    <span class="option-icon">📦</span>
+                    <span class="option-details">
+                        <strong>LBC Express</strong>
+                        <small>Sample standard delivery</small>
+                    </span>
+                    <span class="fee">₱120</span>
+                </label>
+
+                <label class="option-card">
+                    <input type="radio" name="courier"
+                           value="J&T Express" data-fee="85">
+                    <span class="option-icon">🚚</span>
+                    <span class="option-details">
+                        <strong>J&T Express</strong>
+                        <small>Sample regular delivery</small>
+                    </span>
+                    <span class="fee">₱85</span>
+                </label>
+
+            </div>
+        </section>
+
+        <!--for security fee -->
+        <section class="checkout-section">
+            <h3>4. Extra Valuables Security</h3>
+            <p class="section-note">
+                Optional sample fee for additional handling and declared-value
+                protection. Actual insurance or coverage would require a
+                real provider and its terms.
+            </p>
+
+            <label class="security-option">
+                <input type="checkbox" id="extraSecurity"
+                       name="extraSecurity" value="yes">
+                <span>
+                    <strong>Extra Valuables Protection</strong>
+                    <small>
+                        Request additional handling for rare books,
+                        collectible figures, cards, and other valuable items.
+                    </small>
+                </span>
+                <span class="fee">₱50</span>
+            </label>
+        </section>
+
+        <!-- ORDER SUMMARY -->
+        <section class="checkout-section">
+            <h3>5. Order Summary</h3>
+
+            <div class="summary-row">
+                <span>Cart Subtotal</span>
+                <strong id="cartSubtotal">₱0.00</strong>
+            </div>
+
+            <div class="summary-row">
+                <span>Delivery Fee</span>
+                <strong id="deliveryFee">₱0.00</strong>
+            </div>
+
+            <div class="summary-row">
+                <span>Extra Security</span>
+                <strong id="securityFee">₱0.00</strong>
+            </div>
+
+            <div class="summary-row grand-total">
+                <span>Total Payment</span>
+                <strong id="grandTotal">₱0.00</strong>
+            </div>
+        </section>
+
+        <div class="checkout-actions">
+            <button type="submit" class="place-order-btn">
+                Place Order
+            </button>
+
+            <a href="cart.html" class="back-cart-btn">
+                ← Back to Cart
+            </a>
+        </div>
+
+        <div id="orderMessage" role="status" aria-live="polite"></div>
+
+    </form>
+</div>
+</main>
+
+<footer>
+    <h3>LUNARIS VAULT</h3>
+    <p>Giving old collections a new home.</p>
+    <p>Email: handitover@gmail.com</p>
+    <p>© 2026 LUNARIS VAULT</p>
+</footer>
+
+<script>
+const peso = amount =>
+    "₱" + amount.toLocaleString("en-PH", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    });
+
+/*
+  read the cart from localStorage
+  this supports common cart arrays containing objects with a price and optional quantity/qty property
+*/
+function getCartSubtotal() {
+    const possibleKeys = ["cart", "cartItems", "shoppingCart"];
+
+    for (const key of possibleKeys) {
+        try {
+            const saved = localStorage.getItem(key);
+            if (!saved) continue;
+
+            const items = JSON.parse(saved);
+            if (!Array.isArray(items)) continue;
+
+            return items.reduce((sum, item) => {
+                const price = Number(
+                    item.price ?? item.productPrice ?? 0
+                );
+                const quantity = Number(
+                    item.quantity ?? item.qty ?? 1
+                );
+
+                return sum +
+                    (Number.isFinite(price) ? price : 0) *
+                    (Number.isFinite(quantity) && quantity > 0
+                        ? quantity : 1);
+            }, 0);
+        } catch (error) {
+            console.warn("Could not read cart data:", error);
+        }
+    }
+
+    return 0;
+}
+
+const subtotal = getCartSubtotal();
+
+document.getElementById("cartSubtotal").textContent = peso(subtotal);
+
+function updateTotals() {
+    const selectedCourier = document.querySelector(
+        'input[name="courier"]:checked'
+    );
+
+    const shipping = selectedCourier
+        ? Number(selectedCourier.dataset.fee || 0)
+        : 0;
+
+    const security = document.getElementById("extraSecurity").checked
+        ? 50
+        : 0;
+
+    document.getElementById("deliveryFee").textContent = peso(shipping);
+    document.getElementById("securityFee").textContent = peso(security);
+    document.getElementById("grandTotal").textContent =
+        peso(subtotal + shipping + security);
+}
+
+function updateSelectedCards() {
+    document.querySelectorAll(".option-card").forEach(card => {
+        const input = card.querySelector("input");
+        card.classList.toggle("selected", input.checked);
+    });
+}
+
+document.querySelectorAll(
+    'input[name="paymentMethod"], input[name="courier"]'
+).forEach(input => {
+    input.addEventListener("change", () => {
+        updateSelectedCards();
+        updateTotals();
+    });
+});
+
+document.getElementById("extraSecurity").addEventListener(
+    "change", updateTotals
+);
+
+updateSelectedCards();
+updateTotals();
+
+document.getElementById("checkoutForm").addEventListener(
+    "submit", function(event) {
+        event.preventDefault();
+
+        const message = document.getElementById("orderMessage");
+
+        if (subtotal <= 0) {
+            message.style.display = "block";
+            message.textContent =
+                "Your cart appears empty or its total could not be read. " +
+                "Please return to your cart and check your items.";
+            message.scrollIntoView({ behavior: "smooth", block: "center" });
+            return;
+        }
+
+        const payment = document.querySelector(
+            'input[name="paymentMethod"]:checked'
+        );
+        const courier = document.querySelector(
+            'input[name="courier"]:checked'
+        );
+
+        if (!payment || !courier) {
+            message.style.display = "block";
+            message.textContent =
+                "Please select a payment method and a delivery company.";
+            return;
+        }
+
+        const order = {
+            orderNumber: "LV-" + Date.now(),
+            fullName: document.getElementById("fullName").value.trim(),
+            phone: document.getElementById("phone").value.trim(),
+            address: document.getElementById("address").value.trim(),
+            deliveryNotes: document.getElementById("deliveryNotes").value.trim(),
+            paymentMethod: payment.value,
+            courier: courier.value,
+            subtotal: subtotal,
+            deliveryFee: Number(courier.dataset.fee || 0),
+            extraSecurity: document.getElementById("extraSecurity").checked,
+            securityFee: document.getElementById("extraSecurity").checked ? 50 : 0,
+            total: subtotal +
+                Number(courier.dataset.fee || 0) +
+                (document.getElementById("extraSecurity").checked ? 50 : 0),
+            status: "Pending"
+        };
+
+        /*
+          demo only: save the order in this browser.
+          this does not charge the customer or send the order to a seller.
+        */
+        try {
+            const previousOrders = JSON.parse(
+                localStorage.getItem("lunarisOrders") || "[]"
+            );
+
+            previousOrders.push(order);
+            localStorage.setItem(
+                "lunarisOrders",
+                JSON.stringify(previousOrders)
+            );
+
+            message.style.display = "block";
+            message.innerHTML =
+                "<strong>Demo order created!</strong><br>" +
+                "Order number: " + order.orderNumber + "<br>" +
+                "Payment method: " + order.paymentMethod + "<br>" +
+                "Delivery: " + order.courier + "<br>" +
+                "Total: " + peso(order.total) + "<br><br>" +
+                "This is a front-end demonstration only. No payment has " +
+                "been processed and no courier has been booked.";
+
+            message.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+        } catch (error) {
+            message.style.display = "block";
+            message.textContent =
+                "The demo order could not be saved in this browser. " +
+                "Please check your browser storage settings.";
+        }
+    }
+);
+</script>
+
+</body>
+</html>
